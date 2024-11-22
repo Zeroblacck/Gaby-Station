@@ -1,0 +1,2 @@
+electrocute-command-description = Eletrocuta a entidade especificada, o padrao e 10 segundos e 10 de dano. Chocante!
+electrocute-command-entity-cannot-be-electrocuted = Voce nao pode eletrocutar essa entidade!
