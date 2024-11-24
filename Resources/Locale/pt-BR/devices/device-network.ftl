@@ -33,7 +33,7 @@ device-address-prefix-freezer = FZR-
 device-address-prefix-volume-pump = VPP-
 device-address-prefix-smes = SMS-
 
-#PDAs and terminals
+# PDAs and terminals
 device-address-prefix-console = CLS-
 device-address-prefix-fire-alarm = FIR-
 device-address-prefix-air-alarm = AIR-
