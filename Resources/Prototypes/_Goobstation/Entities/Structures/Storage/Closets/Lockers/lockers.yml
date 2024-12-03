@@ -7,7 +7,8 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Storage/closet.rsi
   - type: AccessReader
-    access: [["BlueshieldOfficer"]]
+    #access: [["BlueshieldOfficer"]]
+    access: [["Command"]] # Gabystation
   - type: EntityStorageVisuals
     stateBaseClosed: bso
     stateDoorOpen: bso_open
@@ -22,7 +23,8 @@
   - type: Sprite
     sprite: _Goobstation/Structures/Storage/closet.rsi
   - type: AccessReader
-    access: [["NanotrasenRepresentative"]]
+    #access: [["NanotrasenRepresentative"]]
+    access: [["Command"]] #Gabystation
   - type: EntityStorageVisuals
     stateBaseClosed: ntr
     stateDoorOpen: ntr_open

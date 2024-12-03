@@ -96,7 +96,7 @@
       collection: WelderOff
   - type: Item
     sprite: _Gabystation/Objects/Weapons/Guns/Pistol/PlasmaCutter.rsi
-    size: 10
+    size: Normal
   - type: Gun
     fireRate: 2
     selectedMode: SemiAuto

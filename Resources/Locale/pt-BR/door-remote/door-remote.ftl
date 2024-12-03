@@ -1,14 +1,16 @@
 ## UI
-door-remote-open-close-text = Abre e fecha portas.
-door-remote-toggle-bolt-text = Alterna tranca.
-door-remote-emergency-access-text = Alterna acesso de emergencia.
-door-remote-invalid-text = Invalido.
+
+door-remote-open-close-text = Abre e Fecha Portas
+door-remote-toggle-bolt-text = Alterna Tranca
+door-remote-emergency-access-text = Alterna Acesso de Emergência
+door-remote-invalid-text = Inválido
 door-remote-mode-label = Modo: [color=white]{$modeString}[/color]
 
 ## Entity
 
-door-remote-switch-state-open-close = Voce muda o controle remoto para abrir e fechar portas.
-door-remote-switch-state-toggle-bolts = Voce troca o controle remoto para alternar as trancas.
-door-remote-switch-state-toggle-emergency-access = Voce troca o controle remoto para alternar o acesso de emergencia.
-door-remote-no-power = A porta nao esta energizada.
-door-remote-denied = Acesso negado.
+door-remote-switch-state-open-close = Você muda o controle para abrir e fechar portas
+door-remote-switch-state-toggle-bolts = Você muda o controle para alternar trancas
+door-remote-switch-state-toggle-emergency-access = Você muda o controle para alternar acessos de emergência
+door-remote-no-power = A porta está sem energia
+door-remote-denied = Acesso negado
+

@@ -1,12 +1,12 @@
 # Damage examines
 damage-examinable-verb-text = Dano
-damage-examinable-verb-message = Examine os valores de dano.
+damage-examinable-verb-message = Inspeciona os valores de dano.
 
 damage-hitscan = hitscan
-damage-projectile = Projétil
-damage-melee = corpo a corpo
-damage-throw = Arremesado
+damage-projectile = projétil
+damage-melee = corpo-a-corpo
+damage-throw = arremesso
 
-damage-examine = Causa os seguintes danos:
-damage-examine-type = Causa o seguinte [color=cyan]{$type}[/color] dano:
-damage-value = - [color=red]{$amount}[/color] unidades de [color=yellow]{$type}[/color].
+damage-examine = Isso causa o seguinte dano:
+damage-examine-type = Isso causa o seguinte dano de {$type}:
+damage-value = - [color=red]{$amount}[/color] de [color=yellow]{$type}[/color].

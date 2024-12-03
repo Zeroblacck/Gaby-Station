@@ -1,4 +1,4 @@
 ## AirlockComponent
 
-airlock-component-cannot-pry-is-bolted-message = As trancas da airlock evitam que ela seja forcada!
-airlock-component-cannot-pry-is-powered-message = Os motores acionados bloqueiam seus esforcos!
+airlock-component-cannot-pry-is-bolted-message = A tranca da airlock à previne de ser aberta!
+airlock-component-cannot-pry-is-powered-message = Os motores elétricos te previnem de abrir!
