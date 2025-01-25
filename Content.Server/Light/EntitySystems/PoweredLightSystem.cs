@@ -1,4 +1,3 @@
-using Content.Server.Administration.Logs;
 using Content.Server.DeviceLinking.Events;
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.DeviceNetwork;
@@ -9,14 +8,11 @@ using Content.Server.Light.Components;
 using Content.Server.Power.Components;
 using Content.Shared.Audio;
 using Content.Shared.Damage;
-using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
-using Content.Shared.Inventory;
 using Content.Shared.Light;
 using Content.Shared.Light.Components;
-using Content.Shared.Popups;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -26,6 +22,8 @@ using Robust.Shared.Audio.Systems;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Damage.Components;
 using Content.Shared.Power;
+using Content.Server.Time;
+using Content.Shared.Coordinates;
 
 namespace Content.Server.Light.EntitySystems
 {
@@ -45,6 +43,8 @@ namespace Content.Server.Light.EntitySystems
         [Dependency] private readonly PointLightSystem _pointLight = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly DamageOnInteractSystem _damageOnInteractSystem = default!;
+
+        [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 
         private static readonly TimeSpan ThunkDelay = TimeSpan.FromSeconds(2);
         public const string LightBulbContainer = "light_bulb";
@@ -264,12 +264,16 @@ namespace Content.Server.Light.EntitySystems
                 return;
             }
 
+
             switch (lightBulb.State)
             {
                 case LightBulbState.Normal:
                     if (powerReceiver.Powered && light.On)
                     {
-                        SetLight(uid, true, lightBulb.Color, light, lightBulb.LightRadius, lightBulb.LightEnergy, lightBulb.LightSoftness);
+                        if (!EntityManager.TryGetComponent<LightCycleComponent>(_transformSystem.GetGrid(light.Owner.ToCoordinates()), out var cycle) || !cycle.IsEnabled)
+                            SetLight(uid, true, lightBulb.Color, light, lightBulb.LightRadius, lightBulb.LightEnergy, lightBulb.LightSoftness);
+                        else
+                            SetLight(uid, true);
                         _appearance.SetData(uid, PoweredLightVisuals.BulbState, PoweredLightState.On, appearance);
                         var time = _gameTiming.CurTime;
                         if (time > light.LastThunk + ThunkDelay)
@@ -388,6 +392,8 @@ namespace Content.Server.Light.EntitySystems
             light.CurrentLit = value;
             _ambientSystem.SetAmbience(uid, value);
 
+            UpdateLightCycle(uid, light, value);
+
             if (EntityManager.TryGetComponent(uid, out PointLightComponent? pointLight))
             {
                 _pointLight.SetEnabled(uid, value, pointLight);
@@ -439,6 +445,17 @@ namespace Content.Server.Light.EntitySystems
         {
             if (TryDestroyBulb(uid, component))
                 args.Affected = true;
+        }
+
+        private void UpdateLightCycle(EntityUid uid, PoweredLightComponent component, bool enabled)
+        {
+            var station = _transformSystem.GetGrid(uid);
+            Entity<PoweredLightComponent> lightEnt = (uid, component);
+            if (EntityManager.TryGetComponent<LightCycleComponent>(station, out var cycle) && cycle.IsEnabled)
+                if (!enabled)
+                    cycle.BulbList.Remove(lightEnt);
+                else if (!cycle.BulbList.Contains(lightEnt))
+                    cycle.BulbList.Add(lightEnt);
         }
     }
 }

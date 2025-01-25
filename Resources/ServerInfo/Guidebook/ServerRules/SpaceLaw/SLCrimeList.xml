@@ -264,8 +264,17 @@
 
   ## Crimes Menores
   - Avisos devem ser dados primeiro para ofensas iniciais.
-  - Se múltiplos crimes menores forem cometidos ou a ofensa é repetida, 10 minutos por ofensa é o máximo, com um limite de 20 minutos.
-  <Table Columns="4">
+  - Se múltiplos crimes menores forem cometidos ou o crime é repetida, 5 minutos por crime é o máximo.
+  Same goes for a clear and solid attempt at a crime, or a person who shows clear intent to act out a crime,
+  such as a syndicate nuclear operative arming a nuke but getting arrested before it goes off,
+  they can still be charged with terrorism. Does not apply to crimes that have an attempted listing already,
+  like attempted murder.
+
+  ## Stackable Crimes: Crimes are to be considered ‘stackable’
+  in the sense that if you charge someone with two or more different crimes,
+  you should combine the times you would give them for each crime.
+
+  <Table Columns="5">
     <ColorBox>
       <Box>
         Ofensa
@@ -274,6 +283,10 @@
     <ColorBox>
       <Box>
         Descrição
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -298,6 +311,10 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Isso não inclui testes legítimos e autorizados em animais, e geralmente não inclui vermes e outras criaturas que possam ser perigosas à estação.
       </Box>
     </ColorBox>
@@ -318,6 +335,10 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         O Capitão ou Chefe de Segurança pode autorizar um indivíduo de usar certo contrabando menor. Qualquer contrabando que seja restrito para um departamento além do Comando e da Segurança é um contrabando menor a menos que outrora especificado.
       </Box>
     </ColorBox>
@@ -334,6 +355,10 @@
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Tomar para si propriedade não-essencial e barata de outro indivíduo, organização ou propriedade comum sem consentimento.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
     <ColorBox>
@@ -359,6 +384,10 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Pichar, quebrar copos do bar e afins é vandalismo.
       </Box>
     </ColorBox>
@@ -375,6 +404,10 @@
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Entrar em uma área que não seja de alto-risco sem permissão.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
     <ColorBox>
@@ -399,6 +432,10 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         As vezes, referido como hooliganismo. É um pau pra todaobra para tripulantes que estão perturbando.
         Cobre ofensas como nudez, insultos desnecessários, incitação de crime ou violência e afins.
       </Box>
@@ -411,12 +448,16 @@
   </Table>
 
   ## Crimes Moderados
-  - A sentença máxima para crimes moderados é de 15 minutos.
+  - A sentença máxima para crimes moderados é de 10 minutos. O tempo deve ser dado conforme a gravidade da infração.
   - Dependendo da situação, talvez seja preferível dar um aviso invés de prender.
-  <Table Columns="4">
+  <Table Columns="5">
     <ColorBox>
       <Box>
         Ofensa
+      </Box>
+    </ColorBox><ColorBox>
+      <Box>
+        Max Time
       </Box>
     </ColorBox>
     <ColorBox>
@@ -437,6 +478,10 @@
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Falha em Cooperar
+      </Box>
+    </ColorBox><ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        2:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -466,6 +511,10 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         O Capitão ou Chefe de Segurança pode autorizar um indivíduo de usar certo contrabando maior. Qualquer contrabando que seja restrito para um departamento além do Comando e da Segurança é um contrabando maior a menos que outrora especificado.
       </Box>
     </ColorBox>
@@ -482,6 +531,10 @@
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Maliciosamente danificar ou desfigurar propriedade ou equipamento, público ou privado
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
     <ColorBox>
@@ -506,6 +559,10 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Cobre acidentes industrials, negligência industrial, auto-experimentação ou até mesmo negligência médica.
       </Box>
     </ColorBox>
@@ -517,10 +574,10 @@
   </Table>
 
   ## Crimes Maiores
-  - A sentença máxima para crimes maiores é de 30 minutos.
+  - A sentença máxima para crimes maiores é de 15 minutos. O tempo deve ser dado conforme a gravidade da infração.
   - Agressão e Homicídio Culposo são conectados, e não podem ser aplicados juntamente a um criminoso.
   - É recomendado não dar sentenças máximas para criminosos cooperativos.
-  <Table Columns="4">
+  <Table Columns="5">
     <ColorBox>
       <Box>
         Ofensa
@@ -529,6 +586,10 @@
     <ColorBox>
       <Box>
         Descrição
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -553,7 +614,11 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Isso apenas se aplica se alguém estiver sendo fisicamente detido. Pessoas desalgemando ou interrompendo uma detenção também podem ser detidas por isso. 
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Isso apenas se aplica se alguém estiver sendo fisicamente detido. Pessoas desalgemando ou interrompendo uma detenção também podem ser detidas por isso.
         Violação de Custódia é um crime separado.
       </Box>
     </ColorBox>
@@ -570,6 +635,10 @@
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Fabricar, possuir ou usar contrabando do Sindicato sem autorização.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
     <ColorBox>
@@ -594,7 +663,11 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        A diferença entre roubo menor e roubo maior é baseada em quão crítico o item roubado é. 
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        A diferença entre roubo menor e roubo maior é baseada em quão crítico o item roubado é.
         O crime de roubo maior é majoritariamente usado para o roubo de itens do Comando, e
         peças insubstituíveis de maquinário importante.
       </Box>
@@ -612,6 +685,10 @@
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Causar dano gigante para uma área ou sistema (como a Atmos) de grande importância.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
     <ColorBox>
@@ -636,6 +713,10 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Isso cobre locais como as Telecomms, Armory, Bridge, Satélite da IA, etc.
       </Box>
     </ColorBox>
@@ -656,7 +737,11 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Tentativa de Assassinato e Agressão são duas coisas diferentes; porradaria é muito provavelmente Agressão, 
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Tentativa de Assassinato e Agressão são duas coisas diferentes; porradaria é muito provavelmente Agressão,
         enquanto um tiroteio seria Tentativa de Assassinato.
       </Box>
     </ColorBox>
@@ -673,6 +758,10 @@
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Acidentalmente matar um ser vivo inteligente sem a intenção assassina.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
     <ColorBox>
@@ -697,6 +786,10 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Crimes como danificação de propriedade ou agressão devem ser adicionados a essa ofensa (ou seja, suas sentenças também devem ser adicionadas à sentença inicial). Líderes de uma rebelião podem ser responsabilizados por todos os crimes que ocorram durante sua liderança.
       </Box>
     </ColorBox>
@@ -708,11 +801,11 @@
   </Table>
 
   ## Crimes Extremos
-  - A sentença máxima para crimes extremos é de 45 minutos.
+  - A sentença máxima para crimes extremos é de 15 minutos. O tempo deve ser dado conforme a gravidade da infração.
   - Criminosos particularmente problemáticos podem ser postos na perma.
   - Tentativa de Assassinato e Homicídio Doloso são conectados, e não podem ser aplicados juntamente a um criminoso.
   - Criminosos que tentaram assassinar devem receber mais leniência nas penas do que um assassino real.
-  <Table Columns="4">
+  <Table Columns="5">
     <ColorBox>
       <Box>
         Ofensa
@@ -721,6 +814,10 @@
     <ColorBox>
       <Box>
         Descrição
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
       </Box>
     </ColorBox>
     <ColorBox>
@@ -745,6 +842,10 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Mesmo que raro, essa ofensa pode ser elevada à execução caso o criminoso tenha repetidamente violado a custódia. A pena também se aplica para aqueles que liberem outros.
       </Box>
     </ColorBox>
@@ -761,6 +862,10 @@
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Restringir, transportar, controlar ou por em custódia, de forma ilegal, um ser senciente contra sua vontade.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
     <ColorBox>
@@ -785,6 +890,10 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Tenha certeza que você tem as evidências necessárias para provar as alegações, como uma arma letal tendo sido usada.
       </Box>
     </ColorBox>
@@ -796,6 +905,11 @@
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Homicídio Doloso
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        10:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -816,7 +930,8 @@
   </Table>
 
   ## Crimes Capitais
-  - Crimes Capitais devem, normalmente, serem punidos com execuções ou detenção pelo resto do turno.
+  - Crimes Capitais devem, normalmente, serem punidos com execuções ou prisão perpetua, para isso um julgamento deve ser realizado.
+  - A unica exeção de julgamento é a falha de funcionamento de um Mindshield (quebra do mesmo).
   <Table Columns="4">
     <ColorBox>
       <Box>
@@ -905,12 +1020,12 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Matar três ou mais seres sencientes de forma intencional.
+        Matar cinco ou mais seres sencientes de forma intencional.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Só se aplica quando houver três ou mais assassinatos confirmados, feitos de forma intencional.
+        Só se aplica quando houver cinco ou mais assassinatos confirmados, feitos de forma intencional.
       </Box>
     </ColorBox>
     <ColorBox>

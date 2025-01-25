@@ -10,7 +10,7 @@ ui-options-tab-misc = Geral
 
 ui-options-apply = Salvar & Aplicar
 ui-options-reset-all = Resetar mudanca
-ui-options-default = Resetar ao padrao
+ui-options-default = Resetar ao padrão
 
 ui-options-value-percent = { TOSTRING($value, "P0") }
 
@@ -70,14 +70,14 @@ ui-options-scale-150 = 150%
 ui-options-scale-175 = 175%
 ui-options-scale-200 = 200%
 ui-options-hud-theme = Tema do HUD:
-ui-options-hud-theme-default = Padrao
+ui-options-hud-theme-default = Padrão
 ui-options-hud-theme-plasmafire = Plasmafire
 ui-options-hud-theme-slimecore = Slimecore
 ui-options-hud-theme-clockwork = Clockwork
 ui-options-hud-theme-retro = Retro
 ui-options-hud-theme-minimalist = Minimalista
 ui-options-hud-theme-ashen = Ashen
-ui-options-hud-layout-default = Padrao (SS14)
+ui-options-hud-layout-default = Padrão (SS14)
 ui-options-hud-layout-separated = Separado (SS13)
 ui-options-vp-stretch = Esticar a viewport para caber na janela do jogo
 ui-options-vp-scale = Escala da viewport fixa:
@@ -100,8 +100,9 @@ ui-options-hud-layout = Layout do HUD:
 ## Controls menu
 
 ui-options-binds-reset-all = Redefinir TODOS os atalhos de teclado
-ui-options-binds-explanation = Clique para alterar a vinculacao, clique com o botao direito para limpar
-ui-options-unbound = Desatribuido
+ui-options-binds-explanation = Clique para definir uma tecla, clique com o botão direito para limpar
+ui-options-binds-search = Pesquisar
+ui-options-unbound = Não definido
 ui-options-bind-reset = Resetar
 ui-options-key-prompt = Pressione uma tecla...
 
@@ -154,7 +155,8 @@ ui-options-function-smart-equip-backpack = Smart-equip to backpack
 ui-options-function-smart-equip-belt = Smart-equip to belt
 ui-options-function-open-backpack = Abrir mochila
 ui-options-function-open-belt = Abrir o cinto
-ui-options-function-throw-item-in-hand = Jogar o cinto
+ui-options-function-throw-item-in-hand = Jogar
+
 ui-options-function-try-pull-object = Puxar o objeto
 ui-options-function-move-pulled-object = Mover objeto puxado
 ui-options-function-release-pulled-object = Largar objeto puxado
@@ -252,9 +254,9 @@ ui-options-net-interp-ratio-tooltip = Aumentar isso geralmente tornara o jogo ma
 
 ui-options-net-predict-tick-bias = Vies de previsao
 ui-options-net-predict-tick-bias-tooltip = Aumentar isso geralmente tornara o jogo mais resistente
-										   para servidor-> perda de pacotes do cliente, no entanto, ao fazer isso,
-										   efetivamente adiciona um pouco mais de latencia e requer o
-										   cliente para prever mais ticks futuros.
+                                           para servidor-> perda de pacotes do cliente, no entanto, ao fazer isso,
+                                           efetivamente adiciona um pouco mais de latencia e requer o
+                                           cliente para prever mais ticks futuros.
 
 ui-options-net-pvs-spawn = Orcamento de geracao de entidade PVS
 ui-options-net-pvs-spawn-tooltip = Isso limita a taxa na qual o servidor enviara mensagens recem-geradas

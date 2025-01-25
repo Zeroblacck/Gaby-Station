@@ -121,31 +121,48 @@ public abstract partial class SharedMoverController : VirtualController
     {
         var canMove = mover.CanMove;
         if (RelayTargetQuery.TryGetComponent(uid, out var relayTarget))
-        {
+        {   // IsDead - softcrit
             if (_mobState.IsIncapacitated(relayTarget.Source) ||
                 TryComp<SleepingComponent>(relayTarget.Source, out _) ||
-                !MoverQuery.TryGetComponent(relayTarget.Source, out var relayedMover))
+                // Shitmed Change
+                !PhysicsQuery.TryGetComponent(relayTarget.Source, out var relayedPhysicsComponent) ||
+                !MoverQuery.TryGetComponent(relayTarget.Source, out var relayedMover) ||
+                !XformQuery.TryGetComponent(relayTarget.Source, out var relayedXform) ||
+                _mobState.IsCritical(relayTarget.Source) && !_configManager.GetCVar(CCVars.AllowMovementWhileCrit))
             {
                 canMove = false;
             }
             else
             {
+                mover.LerpTarget = relayedMover.LerpTarget;
                 mover.RelativeEntity = relayedMover.RelativeEntity;
                 mover.RelativeRotation = relayedMover.RelativeRotation;
                 mover.TargetRelativeRotation = relayedMover.TargetRelativeRotation;
+                HandleMobMovement(relayTarget.Source, relayedMover, relayTarget.Source, relayedPhysicsComponent, relayedXform, frameTime);
             }
         }
 
         // Update relative movement
-        if (mover.LerpTarget < Timing.CurTime)
+        // Shitmed Change Start
+        else
         {
-            if (TryUpdateRelative(mover, xform))
+            if (mover.LerpTarget < Timing.CurTime)
             {
-                Dirty(uid, mover);
+                if (TryComp(uid, out RelayInputMoverComponent? relay)
+                    && TryComp(relay.RelayEntity, out TransformComponent? relayXform))
+                {
+                    if (TryUpdateRelative(mover, relayXform))
+                        Dirty(uid, mover);
+                }
+                else
+                {
+                    if (TryUpdateRelative(mover, xform))
+                        Dirty(uid, mover);
+                }
             }
+            LerpRotation(uid, mover, frameTime);
         }
-
-        LerpRotation(uid, mover, frameTime);
+        // Shitmed Change End
 
         if (!canMove
             || physicsComponent.BodyStatus != BodyStatus.OnGround && !CanMoveInAirQuery.HasComponent(uid)

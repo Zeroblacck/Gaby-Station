@@ -2,7 +2,7 @@
   id: Gamma
   mapName: 'Gamma'
   mapPath: /Maps/_Gabystation/gamma.yml
-  minPlayers: 40
+  minPlayers: 30
   maxPlayers: 120
   stations:
     Gamma:
@@ -24,6 +24,7 @@
             HeadOfPersonnel: [ 1, 1 ]
             NanotrasenRepresentative: [ 1, 1 ]
             BlueshieldOfficer: [ 1, 1 ]
+            AdministrativeAssistant: [ 1, 1 ]
             Bartender: [ 1, 1 ]
             Botanist: [ 2, 2 ]
             Chef: [ 2, 2 ]
@@ -66,4 +67,11 @@
             Mime: [ 1, 1 ]
             Musician: [ 2, 2 ]
             Boxer: [ 1, 1 ]
-            
+
+        # blob-config-start HUGE
+        - type: StationBlobConfig
+          stageBegin: 40
+          stageCritical: 450
+          stageTheEnd: 900
+        # blob-config-end
+

@@ -1,5 +1,5 @@
 - type: jukebox
-  id: Fnaf1
+  id: Fnaf
   name: The Living Tombstone - Five Nights at Freddy's 1 Song
   path:
     path: /Audio/_Gabystation/Jukebox/fnaf1.ogg
@@ -23,19 +23,13 @@
 #    path: /Audio/_Gabystation/Jukebox/gay.ogg
 
 - type: jukebox
-  id: DigitalCircus
-  name: Gooseworx - Your New Home (Digital Circus)
-  path:
-    path: /Audio/_Gabystation/Jukebox/DigitalCircus.ogg
-
-- type: jukebox
-  id: CheiaDeManias
+  id: CheiaManias
   name: Raça Negra - Cheia de Manias
   path:
     path: /Audio/_Gabystation/Jukebox/cheia_de_manias.ogg
 
 - type: jukebox
-  id: AGrandeFamilia
+  id: GrandeFamilia
   name: Dudu Nobre - A Grande Familia
   path:
     path: /Audio/_Gabystation/Jukebox/a_grande_familia.ogg
@@ -47,13 +41,39 @@
     path: /Audio/_Gabystation/Jukebox/evidencias.ogg
 
 - type: jukebox
-  id: Evidencias
+  id: Heart
   name: EH!DE - My Heart
   path:
     path: /Audio/_Gabystation/Jukebox/heart.ogg
 
 - type: jukebox
-  id: Evidencias
+  id: Candy
   name: Tobu - Candyland
   path:
     path: /Audio/_Gabystation/Jukebox/candyland.ogg
+
+- type: jukebox
+  id: Sin
+  name: ZIZZ Studio - Sin
+  path:
+    path: /Audio/_Gabystation/Jukebox/sin.ogg
+
+- type: jukebox
+  id: Sunset
+  name: ZIZZ Studio - Sunset
+  path:
+    path: /Audio/_Gabystation/Jukebox/sunset.ogg
+
+- type: jukebox
+  id: Saya
+  name: ZIZZ Studio - Song Of Saya II
+  path:
+    path: /Audio/_Gabystation/Jukebox/saya.ogg
+
+- type: jukebox
+  id: ShoesofGlass
+  name: Itou Kanako - Shoes Of Glass
+  path:
+    path: /Audio/_Gabystation/Jukebox/shoes_of_glass.ogg
+    
+    

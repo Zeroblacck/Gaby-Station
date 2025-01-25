@@ -47,15 +47,26 @@
                         <BoxContainer Orientation="Vertical" SeparationOverride="4" Name="VoteContainer"
                                       Access="Public" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0 8" />
                     </BoxContainer>
-                    <TextureRect Access="Public" Name="FUCKINGMARIAH" MaxHeight="25" />
                     <!-- Vertical Padding-->
                     <Control VerticalExpand="True" />
                     <!-- Left Bot Panel -->
-                    <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom">
-                        <info:DevInfoBanner Name="DevInfoBanner" VerticalExpand="false" Margin="3 3 3 3" />
+                    <!-- Gabystation start-->
+                    <BoxContainer Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                            <Button Name="ShowMOTD" Margin="5 5 5 5" Visible="False" Text="{Loc 'lobby-buletin-motd-title'}"
+                                HorizontalExpand="True" VerticalExpand="True" MinWidth="50" Access="Public" />
+                        <lobbyUi:LobbyBuletin Name="MOTDBuletin" Margin="3 3 3 3" Access="Public"/>
+                        <!-- Gabystation end -->
+                        <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" SeparationOverride="4"> <!-- Goobstation - Lobby Background Credits -->
+                            <info:DevInfoBanner Name="DevInfoBanner" VerticalExpand="false" Margin="3 3 3 3" />
+                            <PanelContainer StyleClasses="AngleRect">
+                                <RichTextLabel Name="LobbySong" Access="Public" HorizontalAlignment="Center" />
+                            </PanelContainer>
+                        </BoxContainer>
+                        <!-- Goobstation start -->
                         <PanelContainer StyleClasses="AngleRect">
-                            <RichTextLabel Name="LobbySong" Access="Public" HorizontalAlignment="Center" />
+                            <RichTextLabel Name="LobbyBackground" Access="Public" HorizontalAlignment="Center" />
                         </PanelContainer>
+                        <!-- Goobstation end -->
                     </BoxContainer>
                 </Control>
                 <!-- Character setup state -->
@@ -69,8 +80,8 @@
                     <BoxContainer Orientation="Horizontal" MinSize="0 40" HorizontalAlignment="Center">
                         <Button Name="AHelpButton" Access="Public" Text="{Loc 'ui-lobby-ahelp-button'}"
                                 StyleClasses="Square" />
-                        <Button Name="RemarksButton" Access="Public" StyleClasses="Square"
-                                Text="{Loc 'ui-lobby-remarks-button'}" />
+                        <Button Name="BalanceButton" Access="Public" StyleClasses="Square"
+                                Text="{Loc 'ui-lobby-balance-button'}" />
                         <vote:VoteCallMenuButton Name="CallVoteButton" StyleClasses="Square" />
                         <Button Name="OptionsButton" Access="Public" StyleClasses="Square"
                                 Text="{Loc 'ui-lobby-options-button'}" />
@@ -92,10 +103,10 @@
                            Margin="3 3 3 3" HorizontalAlignment="Left" />
                     <controls:HSpacer Spacing="5" />
                     <!-- Server Currency -->
-                    <Label Name="Balance" Access="Public" StyleClasses="LabelHeadingBig" VAlign="Center"
+                    <controls:HLine Color="{x:Static style:StyleNano.GabyTheme}" Thickness="2" Access="Public" />
+                    <Label Name="Balance" Access="Public" StyleClasses="LabelHeading" VAlign="Center"
                             HorizontalExpand="True" HorizontalAlignment="Center" />
                     <!-- Gaby line -->
-                    <controls:HLine Color="{x:Static style:StyleNano.GabyTheme}" Thickness="2" Access="Public" />
                     <lobbyUi:LobbyCharacterPreviewPanel Name="CharacterPreview" Access="Public" />
                     <controls:HSpacer Spacing="5" />
                     <BoxContainer MinHeight="10" />

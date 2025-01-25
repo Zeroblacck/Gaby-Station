@@ -21,6 +21,8 @@
     RiotBulletShield: 2
     RadioHandheldSecurity: 5
     SurveillanceWirelessCameraBodySecurity: 5
+    CassetteTape: 4
+    TapeRecorder: 1
     BolaEnergy: 5 # Goobstation
   # security officers need to follow a diet regimen!
   contrabandInventory:
