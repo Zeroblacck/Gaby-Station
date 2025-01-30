@@ -92,7 +92,7 @@
   id: janishootout
   background: /Textures/LobbyScreens/janishootout.webp
   name: Jani Shootout
-  artist: Unknown
+  artist: psychpsyo
 
 - type: lobbyBackground
   id: justaweekaway
@@ -104,10 +104,36 @@
   id: mime
   background: /Textures/LobbyScreens/mime.webp
   name: Mime
-  artist: Unknown
+  artist: Diebeck
 
 - type: lobbyBackground
   id: reclaimer-nuke
   background: /Textures/LobbyScreens/reclaimer-nuke.webp
   name: Reclaimer Nuke
   artist: GetOutMarutak
+
+- type: lobbyBackground
+  id: tideractivities
+  background: /Textures/LobbyScreens/tideractivities.webp
+  name: Tider Activities
+  artist: asardonicsailor
+
+# Gabystation - lobby screens
+
+- type: lobbyBackground
+  id: lavabattle
+  background: /Textures/_Gabystation/LobbyScreens/lavaland.webp
+  name: Batalha em Lavaland
+  artist: Wellnachapa
+
+- type: lobbyBackground
+  id: revolucao
+  background: /Textures/_Gabystation/LobbyScreens/revolucao.webp
+  name: Revolução
+  artist: Wellnachapa
+
+- type: lobbyBackground
+  id: syndcouncil
+  background: /Textures/_Gabystation/LobbyScreens/council.webp
+  name: Conselho
+  artist: Wellnachapa
