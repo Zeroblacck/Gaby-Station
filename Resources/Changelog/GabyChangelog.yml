@@ -217,3 +217,15 @@ Entries:
         invisíveis para turrets nukies.
   id: 29
   time: '2025-02-01T19:10:29.0000000+00:00'
+- author: VictorJob
+  changes:
+    - type: Add
+      message: Added fun!
+    - type: Remove
+      message: Removed fun!
+    - type: Tweak
+      message: Altera alguma sprites
+    - type: Fix
+      message: Fixed fun!
+  id: 30
+  time: '2025-02-02T06:17:26.0000000+00:00'
