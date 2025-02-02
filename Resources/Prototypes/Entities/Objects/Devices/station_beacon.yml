@@ -545,6 +545,9 @@
   components:
   - type: NavMapBeacon
     defaultText: station-beacon-bar
+  - type: ConditionalSpawner # Gabystation - bananilson spawn
+    prototypes:
+      - MobTucanoBananilson
 
 - type: entity
   parent: DefaultStationBeaconService

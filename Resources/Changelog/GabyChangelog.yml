@@ -199,3 +199,21 @@ Entries:
       message: Novos desenhos ao lobby.
   id: 27
   time: '2025-01-27T19:32:06.0000000+00:00'
+- author: Kyoth25f
+  changes:
+    - type: Fix
+      message: Corrige erros de `MAKEPLURAL` e `MANY` nas traduções.
+  id: 28
+  time: '2025-01-31T01:51:23.0000000+00:00'
+- author: beck-thompson, DoutorWhite
+  changes:
+    - type: Add
+      message: >-
+        Hostage Ops, um objetivo alternativo para nukies, onde eles podem
+        sequestrar todos os heads ao invés de explodir a estação.
+    - type: Add
+      message: >-
+        Hostage Implants, que pacificam as vítimas sequestradas e as deixam
+        invisíveis para turrets nukies.
+  id: 29
+  time: '2025-02-01T19:10:29.0000000+00:00'
