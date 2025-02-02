@@ -5,3 +5,4 @@
   icon: { sprite: Objects/Misc/bureaucracy.rsi, state: paper }
   color: "#ffffff"
   price: 0.05
+  
