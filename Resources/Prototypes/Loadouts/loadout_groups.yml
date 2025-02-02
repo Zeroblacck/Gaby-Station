@@ -111,6 +111,7 @@
   - CaptainJumpskirt
   - CaptainFormalSuit
   - CaptainFormalSkirt
+  - CaptainJumpsuitMilitary # goob
 
 - type: loadoutGroup
   id: CaptainNeck
@@ -149,6 +150,7 @@
   loadouts:
   - HoPJumpsuit
   - HoPJumpskirt
+  - HoPJumpsuitMilitary # goob
 
 - type: loadoutGroup
   id: HoPNeck
@@ -183,6 +185,23 @@
   - GreyJumpskirt
   - AncientJumpsuit
   - RainbowJumpsuit
+ # goob changes start
+  - GreyMJ
+  - BlackMJ
+  - BlueMJ
+  - DarkBlueMJ
+  - TealMJ
+  - GreenMJ
+  - DarkGreenMJ
+  - OrangeMJ
+  - PinkMJ
+  - RedMJ
+  - YellowMJ
+  - PurpleMJ
+  - LightBrownMJ
+  - BrownMJ
+  - MaroonMJ
+ # goob changes end
 
 - type: loadoutGroup
   id: PassengerFace
@@ -242,6 +261,7 @@
   - BartenderJumpsuit
   - BartenderJumpskirt
   - BartenderJumpsuitPurple
+  - ServiceMJ # goob
 
 - type: loadoutGroup
   id: BartenderOuterClothing
@@ -272,6 +292,7 @@
   loadouts:
   - ChefJumpsuit
   - ChefJumpskirt
+  - ServiceMJ # goob
 
 - type: loadoutGroup
   id: ChefOuterClothing
@@ -290,6 +311,7 @@
   - LibrarianJumpskirt
   - CuratorJumpsuit
   - CuratorJumpskirt
+  - ServiceMJ # goob
 
 - type: loadoutGroup
   id: LawyerJumpsuit
@@ -305,6 +327,7 @@
   - LawyerJumpskirtRed
   - LawyerJumpsuitGood
   - LawyerJumpskirtGood
+  - ServiceMJ # goob
 
 - type: loadoutGroup
   id: LawyerNeck
@@ -339,6 +362,7 @@
   - ChaplainJumpskirt
   - ChaplainRobesLight
   - ChaplainRobesDark
+  - ServiceMJ # goob
 
 - type: loadoutGroup
   id: ChaplainOuterClothing
@@ -370,6 +394,7 @@
   loadouts:
   - JanitorJumpsuit
   - JanitorJumpskirt
+  - ServiceMJ # goob
 
 - type: loadoutGroup
   id: JanitorGloves
@@ -409,6 +434,8 @@
   - BotanistJumpsuit
   - BotanistJumpskirt
   - BotanistOveralls
+  - ServiceMJ # goob
+  - HydroMJ # goob
 
 - type: loadoutGroup
   id: BotanistBackpack
@@ -538,6 +565,7 @@
   loadouts:
   - MusicianJumpsuit
   - MusicianJumpskirt
+  - ServiceMJ # goob
 
 - type: loadoutGroup
   id: MusicianOuterClothing
@@ -599,6 +627,7 @@
   - QuartermasterTurtleneck
   - QuartermasterTurtleneckSkirt
   - QuartermasterFormalSuit
+  - QuartermasterMJ # goob
 
 - type: loadoutGroup
   id: QuartermasterNeck
@@ -638,6 +667,7 @@
   - CargoTechnicianJumpskirt
   - CargoTechnicianJumpsuitMail # Goob/DeltaV - Mail
   - CargoTechnicianJumpskirtMail # Goob/DeltaV - Mail
+  - CargoTechMJ # goob
 
 - type: loadoutGroup
   id: CargoTechnicianBackpack
@@ -701,6 +731,7 @@
   - ChiefEngineerJumpskirt
   - ChiefEngineerTurtleneck
   - ChiefEngineerTurtleneckSkirt
+  - ChiefEngineerMJ # goob
 
 - type: loadoutGroup
   id: ChiefEngineerNeck
@@ -730,6 +761,7 @@
   loadouts:
   - YellowJumpsuit
   - YellowJumpskirt
+  - EngiMJ # goob
 
 - type: loadoutGroup
   id: StationEngineerHead
@@ -749,6 +781,7 @@
   - StationEngineerHazardsuit
   - SeniorEngineerJumpsuit
   - SeniorEngineerJumpskirt
+  - EngiMJ # goob
 
 - type: loadoutGroup
   id: StationEngineerBackpack
@@ -796,6 +829,7 @@
   - AtmosphericTechnicianJumpsuitCasual
   - SeniorEngineerJumpskirt  # Goobstation
   - SeniorEngineerJumpsuit   # Goobstation
+  - AtmosMJ # goob
 
 - type: loadoutGroup
   id: AtmosphericTechnicianOuterClothing
@@ -851,6 +885,7 @@
   loadouts:
   - ResearchDirectorJumpsuit
   - ResearchDirectorJumpskirt
+  - ResearchDirectorMJ # goob
 
 - type: loadoutGroup
   id: ResearchDirectorOuterClothing
@@ -893,6 +928,7 @@
   - RoboticistJumpskirt
   - SeniorResearcherJumpsuit
   - SeniorResearcherJumpskirt
+  - ResearchMJ # goob
 
 - type: loadoutGroup
   id: ScientistBackpack
@@ -944,6 +980,7 @@
   loadouts:
   - WhiteJumpsuit
   - WhiteJumpskirt
+  - ResearchMJ # goob
 
 # Security
 - type: loadoutGroup
@@ -1139,6 +1176,7 @@
   - ChiefMedicalOfficerJumpskirt
   - ChiefMedicalOfficerTurtleneckJumpsuit
   - ChiefMedicalOfficerTurtleneckJumpskirt
+  - CMOMJ # goob
 
 - type: loadoutGroup
   id: ChiefMedicalOfficerOuterClothing
@@ -1187,6 +1225,7 @@
   - MedicalBlueScrubs
   - MedicalGreenScrubs
   - MedicalPurpleScrubs
+  - MedicMJ # goob
 
 - type: loadoutGroup
   id: MedicalDoctorOuterClothing
@@ -1240,6 +1279,7 @@
   loadouts:
   - WhiteJumpsuit
   - WhiteJumpskirt
+  - MedicMJ # goob
 
 - type: loadoutGroup
   id: ChemistJumpsuit
@@ -1247,6 +1287,7 @@
   loadouts:
   - ChemistJumpsuit
   - ChemistJumpskirt
+  - ChemistMJ # goob
 
 - type: loadoutGroup
   id: ChemistOuterClothing
@@ -1278,6 +1319,7 @@
   loadouts:
   - ParamedicJumpsuit
   - ParamedicJumpskirt
+  - ParamedMJ # goob
 
 - type: loadoutGroup
   id: ParamedicOuterClothing
