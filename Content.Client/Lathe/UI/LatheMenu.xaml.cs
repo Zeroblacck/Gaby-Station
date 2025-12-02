@@ -61,6 +61,7 @@
 // SPDX-FileCopyrightText: 2025 coderabbitai[bot] <136622811+coderabbitai[bot]@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <39013340+deltanedas@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 deltanedas <@deltanedas:kde.org>
+// SPDX-FileCopyrightText: 2025 fishbait <gnesse@gmail.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <159397573+gluesniffler@users.noreply.github.com>
 // SPDX-FileCopyrightText: 2025 gluesniffler <linebarrelerenthusiast@gmail.com>
 // SPDX-FileCopyrightText: 2025 gus <august.eymann@gmail.com>
@@ -187,7 +188,7 @@ public sealed partial class LatheMenu : DefaultWindow
     {
         MiningPointsClaimButton.Disabled = points == 0 ||
             _player.LocalSession?.AttachedEntity is not { } player ||
-            _miningPoints.TryFindIdCard(player) == null;
+            !_miningPoints.CanClaimPoints(player); // Goobstation - borg mining Points
         if (points == _lastMiningPoints)
             return;
 

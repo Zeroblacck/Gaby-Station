@@ -35,13 +35,13 @@ using Content.Server._Goobstation.Wizard.Store;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
 using Content.Server.Heretic.EntitySystems;
-using Content.Server.PDA.Ringer;
 using Content.Server.Stack;
 using Content.Server.Store.Components;
 using Content.Shared._Goobstation.Wizard.Refund; // Goob
 using Content.Shared.Actions;
 using Content.Shared.Database;
 using Content.Goobstation.Maths.FixedPoint;
+using Content.Goobstation.Shared.ManifestListings;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Heretic; // Goob
 using Content.Shared.Heretic.Prototypes; // Goob
@@ -54,7 +54,10 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Timing; // Goob
+using Content.Shared.Actions.Components;
+using Content.Shared.Charges.Systems;
+using Content.Shared.Actions.Events;
+using Content.Shared._Funkystation.Actions.Events; // Goob
 
 namespace Content.Server.Store.Systems;
 
@@ -72,7 +75,7 @@ public sealed partial class StoreSystem
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly HereticKnowledgeSystem _heretic = default!; // goobstation - heretics
-    [Dependency] private readonly IGameTiming _timing = default!; // goobstation - ntr update
+    [Dependency] private readonly SharedChargesSystem _chargesSystem = default!;
 
     private void InitializeUi()
     {
@@ -213,6 +216,14 @@ public sealed partial class StoreSystem
             RaiseLocalEvent(uid, new NtrListingPurchaseEvent(listing.Cost.First().Value));
         OnPurchase(listing); // Goob edit - ntr shittery
 
+        // Goobstation start
+        if (_mind.TryGetMind(buyer, out var mindId, out _))
+        {
+            var ev = new ListingPurchasedEvent(buyer, uid, listing);
+            RaiseLocalEvent(mindId, ref ev);
+        }
+        // Goobstation end
+
         // if (!IsOnStartingMap(uid, component)) // Goob edit
         //     component.RefundAllowed = false;
 
@@ -225,6 +236,10 @@ public sealed partial class StoreSystem
 
             component.BalanceSpent[currency] += value;
         }
+
+        // Gabystation -> Better Malf Ai store
+        var currencyEvent = new CurrencyUpdatedEvent(listing.Cost.ToDictionary(entry => entry.Key, entry => -entry.Value));
+        RaiseLocalEvent(uid, currencyEvent);
 
         // goobstation - heretics
         // i am too tired of making separate systems for knowledge adding
@@ -261,17 +276,66 @@ public sealed partial class StoreSystem
         //give action
         if (!string.IsNullOrWhiteSpace(listing.ProductAction))
         {
-            EntityUid? actionId;
-            // I guess we just allow duplicate actions?
-            // Allow duplicate actions and just have a single list buy for the buy-once ones.
-            if (!_mind.TryGetMind(buyer, out var mind, out _))
-                actionId = _actions.AddAction(buyer, listing.ProductAction);
-            else
-                actionId = _actionContainer.AddAction(mind, listing.ProductAction);
+            EntityUid? actionId = null;
+            var existingActionFound = false;
 
-            // Add the newly bought action entity to the list of bought entities
+            // Funkystation -> Malf Ai. Check if buyer already has this action and add charges instead of creating duplicate
+            if (!_mind.TryGetMind(buyer, out var mind, out _))
+            {
+                // Check buyer's actions directly
+                if (TryComp<ActionsComponent>(buyer, out var buyerActions))
+                {
+                    foreach (var existingAction in buyerActions.Actions)
+                    {
+                        var actionMetadata = MetaData(existingAction);
+                        if (actionMetadata.EntityPrototype is { } actionProto
+                            && actionProto.ID == listing.ProductAction.Value)
+                        {
+                            // Found existing action, add charges to it using existing method
+                            if (listing.ProductActionCharges.HasValue && listing.ProductActionCharges > 0)
+                            {
+                                _chargesSystem.AddCharges(existingAction, listing.ProductActionCharges.Value);
+                            }
+                            actionId = existingAction;
+                            existingActionFound = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!existingActionFound)
+                    actionId = _actions.AddAction(buyer, listing.ProductAction);
+            }
+            else
+            {
+                // Check mind's action container
+                if (TryComp<ActionsContainerComponent>(mind, out var mindActions))
+                {
+                    foreach (var existingAction in mindActions.Container.ContainedEntities)
+                    {
+                        var actionMetadata = MetaData(existingAction);
+                        if (actionMetadata.EntityPrototype is { } actionProto
+                            && actionProto.ID == listing.ProductAction)
+                        {
+                            // Found existing action, add charges to it using existing method
+                            if (listing.ProductActionCharges.HasValue && listing.ProductActionCharges > 0)
+                            {
+                                _chargesSystem.AddCharges(existingAction, listing.ProductActionCharges.Value);
+                            }
+                            actionId = existingAction;
+                            existingActionFound = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!existingActionFound)
+                    actionId = _actionContainer.AddAction(mind, listing.ProductAction);
+            }
+
+            // Add the newly bought action entity to the list of bought entities (only for new actions)
             // And then add that action entity to the relevant product upgrade listing, if applicable
-            if (actionId != null)
+            if (actionId != null && !existingActionFound)
             {
                 HandleRefundComp(uid, component, actionId.Value, listing.Cost, listing); // Goob edit
 
@@ -323,10 +387,22 @@ public sealed partial class StoreSystem
 
         if (listing.ProductEvent != null)
         {
-            if (!listing.RaiseProductEventOnUser)
-                RaiseLocalEvent(listing.ProductEvent);
+            // Funkystation -> Malf Ai. Handle ActionPurchaseCompanionEvent specially to populate the buyer
+            if (listing.ProductEvent is ActionPurchaseCompanionEvent companionEvent)
+            {
+                companionEvent.Buyer = GetNetEntity(buyer);
+                if (!listing.RaiseProductEventOnUser)
+                    RaiseLocalEvent(companionEvent);
+                else
+                    RaiseLocalEvent(buyer, companionEvent);
+            }
             else
-                RaiseLocalEvent(buyer, listing.ProductEvent);
+            {
+                if (!listing.RaiseProductEventOnUser)
+                    RaiseLocalEvent(listing.ProductEvent);
+                else
+                    RaiseLocalEvent(buyer, listing.ProductEvent);
+            }
         }
 
         // Goob edit start
@@ -367,7 +443,6 @@ public sealed partial class StoreSystem
             var restockDuration = listing.RestockAfterPurchase ?? listing.RestockDuration; // Просто используем значение напрямую
             listing.RestockTime = _timing.CurTime + restockDuration;
         } // goob edit end
-
     }
 
     /// <summary>

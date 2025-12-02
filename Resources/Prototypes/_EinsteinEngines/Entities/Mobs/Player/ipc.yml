@@ -98,6 +98,7 @@
     unlockOnClick: false
     lockTime: 5
     unlockTime: 5
+  - type: OfferItem # CorvaxGoob-Offer
   - type: InteractionPopup
     successChance: 1
     interactSuccessString: hugging-success-generic
@@ -187,6 +188,8 @@
   - type: DamagedSiliconAccent
   - type: Uncloneable
   - type: Fingerprint
+  - type: OwnInteractionVerbs
+    allowedVerbs: []
   - type: Sprinter # Goob Change: slight nerf to speed because heavy robot, mass contest when
     sprintSpeedMultiplier: 1.2
   - type: Tag
@@ -198,8 +201,6 @@
     - DoorBumpOpener
     - AnomalyHost
     - IPCDrinkBlacklist # Goobstation - Energycrit: Don't let self antagging IPCs steal power from other ipcs.
-  - type: OwnInteractionVerbs # EE: Interaction Verbs
-    allowedVerbs: []
 
 - type: entity
   save: false
