@@ -149,6 +149,7 @@ namespace Content.Server.Administration.Systems
     public sealed partial class BwoinkSystem : SharedBwoinkSystem
     {
         private const string RateLimitKey = "AdminHelp";
+        private const int MaxBwoinkLength = 10000; // Dumont - exploit hot fix
 
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IAdminManager _adminManager = default!;
@@ -788,6 +789,13 @@ namespace Content.Server.Administration.Systems
             if (_rateLimit.CountAction(eventArgs.SenderSession, RateLimitKey) != RateLimitStatus.Allowed)
                 return;
 
+            // Dumont fix this bullshit
+            if (message.Text is not { } text || text.Length > MaxBwoinkLength)
+            {
+                Log.Warning($"{senderSession.Name} ({senderSession.Channel.RemoteEndPoint}) sent an invalid ahelp message (length {message.Text?.Length}).");
+                return;
+            }
+
             var bwoinkParams = new BwoinkParams(message,
                 eventArgs.SenderSession.UserId,
                 senderAdmin,
@@ -796,7 +804,14 @@ namespace Content.Server.Administration.Systems
                 false,
                 true,
                 false);
-            OnBwoinkInternal(bwoinkParams);
+            try
+            {
+                OnBwoinkInternal(bwoinkParams);
+            }
+            catch (AccessViolationException ex)
+            {
+                Log.Error($"boink access violation (${senderSession.Channel.RemoteEndPoint}):\n{ex}");
+            }
         }
 
         /// <summary>
