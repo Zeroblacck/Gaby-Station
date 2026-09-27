@@ -684,6 +684,39 @@ namespace Content.Server.Administration.Systems
             _processingChannels.Remove(userId);
         }
 
+        // Dumont - plain text alert for invalid ahelps
+        private async void SendInvalidMessageWebhook(string username, NetUserId userId, string? text)
+        {
+            if (string.IsNullOrEmpty(_webhookUrl))
+                return;
+
+            var preview = text ?? string.Empty;
+            if (preview.Length > 999)
+                preview = preview[..999] + "...";
+
+            try
+            {
+                var payload = new WebhookPayload
+                {
+                    Content = Loc.GetString("bwoink-system-invalid-message-webhook",
+                        ("username", username),
+                        ("userId", userId.ToString()),
+                        ("length", text?.Length.ToString() ?? "null"),
+                        ("text", preview.Replace("`", "'"))),
+                };
+
+                var request = await _httpClient.PostAsync(_webhookUrl,
+                    new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
+
+                if (!request.IsSuccessStatusCode)
+                    _sawmill.Error($"Failed to send invalid ahelp webhook: {request.StatusCode}");
+            }
+            catch (Exception e)
+            {
+                _sawmill.Error($"Error sending invalid ahelp webhook: {e}");
+            }
+        }
+
         private WebhookPayload GeneratePayload(string messages, string username, Guid userId, string? characterName = null) // Frontier: added Guid
         {
             // Add character name
@@ -793,6 +826,7 @@ namespace Content.Server.Administration.Systems
             if (message.Text is not { } text || text.Length > MaxBwoinkLength)
             {
                 Log.Warning($"{senderSession.Name} ({senderSession.Channel.RemoteEndPoint}) sent an invalid ahelp message (length {message.Text?.Length}).");
+                SendInvalidMessageWebhook(senderSession.Name, senderSession.UserId, message.Text);
                 return;
             }
 
