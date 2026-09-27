@@ -149,7 +149,7 @@ namespace Content.Server.Administration.Systems
     public sealed partial class BwoinkSystem : SharedBwoinkSystem
     {
         private const string RateLimitKey = "AdminHelp";
-        private const int MaxBwoinkLength = 10000; // Dumont - exploit hot fix
+        private const int MaxBwoinkLength = 1000; // Dumont - exploit hot fix
 
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly IAdminManager _adminManager = default!;
