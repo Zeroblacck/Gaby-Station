@@ -4197,3 +4197,9 @@ Entries:
       message: Vendinha de roupa do planeta nukie agora tem seus itens gratuitos.
   id: 499
   time: '2026-09-29T00:25:55.0000000+00:00'
+- author: Crono209
+  changes:
+    - type: Add
+      message: Cutscene pôs morte
+  id: 500
+  time: '2026-09-29T04:09:21.0000000+00:00'
