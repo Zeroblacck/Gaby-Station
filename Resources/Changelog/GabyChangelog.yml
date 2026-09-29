@@ -4191,3 +4191,9 @@ Entries:
       message: Entidades e equipamentos agora voltaram a funcionar novamente.
   id: 498
   time: '2026-09-29T00:20:30.0000000+00:00'
+- author: Dreykor
+  changes:
+    - type: Fix
+      message: Vendinha de roupa do planeta nukie agora tem seus itens gratuitos.
+  id: 499
+  time: '2026-09-29T00:25:55.0000000+00:00'
