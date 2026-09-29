@@ -4203,3 +4203,11 @@ Entries:
       message: Cutscene pôs morte
   id: 500
   time: '2026-09-29T04:09:21.0000000+00:00'
+- author: Struater
+  changes:
+    - type: Tweak
+      message: >-
+        Mãos de cyborg agora têm whitelist e nome de slot, então cada slot só
+        aceita o tipo de item dele.
+  id: 501
+  time: '2026-09-29T10:29:47.0000000+00:00'
