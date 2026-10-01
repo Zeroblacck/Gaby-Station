@@ -4217,3 +4217,11 @@ Entries:
       message: Adicionado diversos decalques novos.
   id: 502
   time: '2026-09-29T21:15:35.0000000+00:00'
+- author: SrKolobanov
+  changes:
+    - type: Add
+      message: >-
+        Skin dourada para o sabre de capitão, pode ser liberado no loadout com
+        150 horas no cargo.
+  id: 503
+  time: '2026-10-01T15:20:03.0000000+00:00'
